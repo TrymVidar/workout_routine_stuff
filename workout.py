@@ -35,7 +35,7 @@ first_in = input()
 
 if first_in == "s":
 
-    while s <= 8:
+    while s < 8:
         print("Ready? y/n")
         s_in = input()
 
@@ -45,67 +45,35 @@ if first_in == "s":
         else:
             print("goodbye")
             break
-            if s == 8:
+        
+        if s == 8:
                 print("Moving on to the workout..\n")
-                print("Full workout or min? f/m")
-                full_min = input()
-                if full_min == "f":
-
-                    while w <= 50:
-
-                        print("Draw y/n")
-                        workout_in = input()
-
-                        if workout_in == "y":
-                            print(workout())
-                            w += 1
-                        else:
-                            print("Seems to be a problem")
-                            break
-
-                elif full_min == "m":
-
-                    while w <= 20:
-
-                        print("Draw y/n")
-                        min_in = input()
-
-                        if min_in == "y":
-                            print(min_workout())
-                            w += 1
-                        else:
-                            print("There seems to be a problem")
-                            break
-                else:
-                     print("There seems to be a problem")
-                     break
+                def routine():
+                   print("Full workout or min? f/m")
+                   full_min = input()
+                   if full_min == "f":
+                       while w < 50:
+                           print("Draw y/n")
+                           workout_in = input()
+                           if workout_in == "y":
+                               print(workout())
+                               w += 1
+                           else:
+                               print("Seems to be a problem")
+                               break
+                   elif full_min == "m":
+                       while w < 20:
+                           print("Draw y/n")
+                           min_in = input()
+                           if min_in == "y":
+                               print(min_workout())
+                               w += 1
+                           else:
+                               print("There seems to be a problem")
+                               break
+                   else:
+                        print("There seems to be a problem")
+                        full_min()
 
 if first_in == "w":
-    print("Full workout or min? f/m")
-    fm_in = input()
-    if fm_in == "f":
-
-        while w <= 50:
-
-            print("Draw y/n")
-            w_in = input()
-
-            if w_in == "y":
-               print(workout())
-               w += 1
-            else:
-                print("Seems to be a problem")
-                break
-    elif fm_in == "m":
-
-        while w <= 20:
-
-            print("Draw y/n")
-            m_in = input()
-
-            if m_in == "y":
-                print(min_workout())
-                w += 1
-            else:
-                print("There seems to be a problem")
-                break
+    routine()
