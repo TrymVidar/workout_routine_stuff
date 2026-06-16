@@ -11,14 +11,12 @@ full_w = [2,3,4,5,6,7,8,9,10, "wild card(15)"]
 min_w = [5, 10, 7, 3]
 
 stretches = ["Arms", "Back", "Legs", "Stomach", ]
-
-w = 0
-s = 0
+    
+st = 0
 
 def stretch():
     strch = random.sample(stretches, 1)
     return(f"Stretch your {strch} for 10 seconds")
-
 
 def workout():
     card = random.sample(cards, 1)
@@ -33,47 +31,50 @@ def min_workout():
 print("Stretch or Workout first? s/w")
 first_in = input()
 
+def routine():       
+            w = 0
+            print("Full workout or min? f/m")
+            full_min = input()
+            if full_min == "f":
+                while w < 50:
+                    print("Draw y/n")
+                    workout_in = input()
+                    if workout_in == "y":
+                        print(workout())
+                        w += 1
+                    else:
+                        print("Seems to be a problem")
+                        break
+            elif full_min == "m":
+                while w < 20:
+                    print("Draw y/n")
+                    min_in = input()
+                    if min_in == "y":
+                        print(min_workout())
+                        w += 1
+                    else:
+                        print("There seems to be a problem")
+                        break
+            else:
+                print("There seems to be a problem")
+                full_min()
+
 if first_in == "s":
 
-    while s < 8:
+    while st < 8:
         print("Ready? y/n")
         s_in = input()
 
         if s_in == "y":
             print(stretch())
-            s += 1
+            st += 1
         else:
             print("goodbye")
             break
         
-        if s == 8:
+        if st == 8:
                 print("Moving on to the workout..\n")
-                def routine():
-                   print("Full workout or min? f/m")
-                   full_min = input()
-                   if full_min == "f":
-                       while w < 50:
-                           print("Draw y/n")
-                           workout_in = input()
-                           if workout_in == "y":
-                               print(workout())
-                               w += 1
-                           else:
-                               print("Seems to be a problem")
-                               break
-                   elif full_min == "m":
-                       while w < 20:
-                           print("Draw y/n")
-                           min_in = input()
-                           if min_in == "y":
-                               print(min_workout())
-                               w += 1
-                           else:
-                               print("There seems to be a problem")
-                               break
-                   else:
-                        print("There seems to be a problem")
-                        full_min()
-
+                routine()
+                  
 if first_in == "w":
     routine()
